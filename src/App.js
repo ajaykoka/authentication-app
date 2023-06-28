@@ -10,11 +10,6 @@ function App() {
   const handleRegister = async (e) => {
     e.preventDefault();
 
-    // Implement your registration logic here
-    // Send a request to your backend to register a new user
-    // You can use libraries like Axios or fetch to make the API call
-
-    // Example using fetch:
     const response = await fetch('http://localhost:4000/graphql', {
       method: 'POST',
       headers: {
@@ -38,7 +33,6 @@ function App() {
 
     const { data } = await response.json();
 
-    // Update the component state based on the response
     if (data && data.register) {
       const { user, token } = data.register;
       setIsTwoFactorEnabled(user.isTwoFactorEnabled);
@@ -50,10 +44,6 @@ function App() {
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    // Implement your login logic here
-    // Send a request to your backend to authenticate the user
-
-    // Example using fetch:
     const response = await fetch('http://localhost:4000/graphql', {
       method: 'POST',
       headers: {
@@ -77,7 +67,6 @@ function App() {
 
     const { data } = await response.json();
 
-    // Update the component state based on the response
     if (data && data.login) {
       const { user, token } = data.login;
       setIsTwoFactorEnabled(user.isTwoFactorEnabled);
@@ -89,10 +78,6 @@ function App() {
   const handleEnableTwoFactorAuth = async (e) => {
     e.preventDefault();
 
-    // Implement your enable two-factor authentication logic here
-    // Send a request to your backend to enable two-factor authentication for the user
-
-    // Example using fetch:
     const response = await fetch('http://localhost:4000/graphql', {
       method: 'POST',
       headers: {
@@ -109,7 +94,6 @@ function App() {
 
     const { data } = await response.json();
 
-    // Update the component state based on the response
     if (data && data.enableTwoFactorAuth) {
       setIsTwoFactorEnabled(true);
     }
@@ -118,10 +102,6 @@ function App() {
   const handleDisableTwoFactorAuth = async (e) => {
     e.preventDefault();
 
-    // Implement your disable two-factor authentication logic here
-    // Send a request to your backend to disable two-factor authentication for the user
-
-    // Example using fetch:
     const response = await fetch('http://localhost:4000/graphql', {
       method: 'POST',
       headers: {
@@ -138,7 +118,6 @@ function App() {
 
     const { data } = await response.json();
 
-    // Update the component state based on the response
     if (data && data.disableTwoFactorAuth) {
       setIsTwoFactorEnabled(false);
     }
@@ -147,10 +126,6 @@ function App() {
   const handleVerifyTwoFactorAuth = async (e) => {
     e.preventDefault();
 
-    // Implement your two-factor authentication verification logic here
-    // Send a request to your backend to verify the provided two-factor authentication code
-
-    // Example using fetch:
     const response = await fetch('http://localhost:4000/graphql', {
       method: 'POST',
       headers: {
@@ -167,7 +142,6 @@ function App() {
 
     const { data } = await response.json();
 
-    // Update the component state based on the response
     if (data && data.verifyTwoFactorAuth) {
       // Handle successful verification
     } else {
